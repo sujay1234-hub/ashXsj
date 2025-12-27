@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You 💙</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    overflow: hidden;
+    color: white;
+}
+
+/* INTRO SCREEN */
+.intro {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: radial-gradient(circle at center, #020617, #000);
+    z-index: 10;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 6s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.intro h1 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px #3b82f6; }
+    to { text-shadow: 0 0 25px #60a5fa; }
+}
+
+.intro p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* MAIN CONTENT */
+.main {
+    opacity: 0;
+    animation: showMain 2s ease forwards;
+    animation-delay: 6s;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes showMain {
+    to { opacity: 1; }
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    max-width: 650px;
+    box-shadow: 0 0 60px rgba(59,130,246,0.3);
+}
+
+.card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+button {
+    margin-top: 25px;
+    padding: 14px 40px;
+    border-radius: 50px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 0 30px rgba(59,130,246,0.6);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(59,130,246,1);
+}
+
+.hidden {
+    display: none;
+}
+
+.image-box img {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(255,255,255,0.3);
+}
+
+video {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div class="intro">
+    <h1>For Someone Special</h1>
+    <p>Just wait… something beautiful is coming ✨</p>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+    <div class="card">
+        <h2>Hey My Friend 💙</h2>
+        <p>This moment is just for you.</p>
+
+        <button onclick="reveal()">Reveal the Surprise ✨</button>
+
+        <div id="content" class="hidden">
+            <div class="image-box">
+                <img src="ash.jpg" alt="Friend">
+            </div>
+
+            <p style="margin-top:20px;">
+                This song reminds me of you 🎵
+            </p>
+
+            <video controls>
+                <source src="mom.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
+
+<script>
+function reveal() {
+    document.getElementById("content").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
